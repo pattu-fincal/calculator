@@ -26,6 +26,15 @@ public class Resource {
         return new Integer(i1 * i2).toString();
     }
 
+    @GET
+    @Path("test")
+    @Produces(MediaType.TEXT_PLAIN)
+    public String test(@QueryParam("input1") String input1, @QueryParam("input2") String input2) {
+        Integer i1 = Integer.parseInt(input1);
+        Integer i2 = Integer.parseInt(input2);
+        return new Integer((i1 +1) * (i2 +1)).toString();
+    }
+
     @POST
     @Path("post")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
